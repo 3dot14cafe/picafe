@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Pi Café - Your Cozy Garden Café</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#E07A5F",
+                "background-light": "#FAF9F6",
+                "background-dark": "#1d2a2a",
+                "text-light-primary": "#2F4F4F",
+                "text-light-secondary": "#6B8E23",
+                "text-dark-primary": "#F5F5DC",
+                "text-dark-secondary": "#a9c86d",
+                "surface-light": "#F5F5DC",
+                "surface-dark": "#2F4F4F"
+              },
+              fontFamily: {
+                "display": ["Be Vietnam Pro", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+        <div class="flex flex-1 justify-center">
+            <div class="layout-content-container flex flex-col max-w-6xl flex-1">
+                <!-- TopNavBar -->
+                <header class="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-solid border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-6 lg:px-10 py-3">
+                    <a class="flex items-center gap-4 text-text-light-primary dark:text-text-dark-primary" href="#">
+                        <div class="size-12">
+                            <img src="static/pi_logo.png" alt="Pi Cafe">
+                        </div>
+                        <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Pi Café</h2>
+                    </a>
+                    <div class="hidden md:flex flex-1 justify-end gap-8">
+                        <div class="flex items-center gap-9">
+                            <a class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                               href="#about">About</a>
+                            <a class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                               href="#events">Events</a>
+                            <a class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                               href="#visit">Visit Us</a>
+                        </div>
+                        <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                            <span class="truncate">Book a Table</span>
+                        </button>
+                    </div>
+                </header>
+                <main>
+                    <!-- HeroSection -->
+                    <section class="min-h-[60vh] md:min-h-[80vh] flex flex-col justify-center">
+                        <div class="@container">
+                            <div class="p-4">
+                                <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4 text-center"
+                                     data-alt="Sunny outdoor seating area of a cafe with lush green plants and wooden tables."
+                                     style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("static/pi_backyard.jpeg");'>
+                                    <div class="flex flex-col gap-2">
+                                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                                            Pi Café</h1>
+                                        <h2 class="text-white text-lg font-normal leading-normal @[480px]:text-xl @[480px]:font-normal @[480px]:leading-normal max-w-2xl">
+                                            Your Cozy Garden Café to Work, Chill &amp; Celebrate. Welcome to your
+                                            tranquil garden escape in the heart of Bangalore.</h2>
+                                    </div>
+                                    <div class="flex-wrap gap-3 flex justify-center">
+                                        <a href="static/pi_menu.pdf" target="_blank" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                            <span class="truncate">View Menu</span></a>
+                                        <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-background-light/90 text-text-light-primary text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                            <span class="truncate">Book a Table</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- FeatureSection -->
+                    <section class="flex flex-col gap-10 px-4 py-10 sm:py-16 @container" id="about">
+                        <div class="flex flex-col gap-4 text-center items-center">
+                            <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                Why You’ll Love Pi Café</h1>
+                            <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
+                                We've created the perfect urban sanctuary for you to relax, work, or celebrate. Here are
+                                a few reasons you'll feel right at home.</p>
+                        </div>
+                        <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 p-0">
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">deck</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Cozy Garden Seating</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Relax in our lush, green outdoor space.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">wifi</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Free High-Speed Wi-Fi</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Stay connected for work or leisure.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">coffee</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Tasty Food &amp; Coffee</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Enjoy our delicious, freshly prepared menu.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">menu_book</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Books &amp; Board Games</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Unwind with our curated collection.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">pets</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Pet-Friendly Zone</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Bring your furry friends along with you.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">music_note</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Peaceful Music</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Enjoy a calm and productive atmosphere.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- ImageGrid -->
+                    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A close-up of a steaming cup of latte art."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCk0aQjn2f3VHg0mshcI7OqYmAJq4zmsKJc3AX6YFI8_wjizLj5v8Ijs1hClyLTyr3GYk1Jmr6XxBScio4ZJw9AW5wKlV4cIEdCf0HEQ5c__zDTGsIdtVYCmcCusGoTC0mOMCW4S3CctQ7S70VZ-R0GKMfsf1kUicoRhcaK7iiZ1NuW1RZTaIfBKe2dPorXX80QcbQtapnLWKZu6zgforygJ54i2vT6pYcbNsZy-mXcwIUGG4tqXreduD2gBVM-NlLRVqdpFlDB9MoJ");'></div>
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A smiling person working on a laptop in the cafe garden."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCy33Y2YLgCefGUnTGOB7rPgPSJvVt8ZFH8fU5cdDhGnlLR5W9HoRYlz2aR02qMyBIoW1ndW6cpZhUHledlEA--BkL2901vEf3Loy7MQ3fT8-hkT-fQFHeKrBGlXEdJ1sGoOf-mWbKTW9Cwq93sl55XC-XSqj6MTpRF5SgryXm57wr8fIP8EnTeLuedp2vQ89cjmMjQ15p84C3ZWcJ1jLyeaCJBVvW6C3aLoSzKhVTKzSyLoOrWnJ52fEBk1H32GkZkV2vOSQDvgtFN");'></div>
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A group of friends laughing and enjoying food at a table."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUTJBHIvM9C3-mzjQesTH03EtZCy0D113F7iwjC_oaVveemqQ86IoLsm9BciRVA7RZ2321va26IuS3SLzZxC7b5Diri9GD_2GtIJ5ZOLyKcOtja4CwDV_govc8J7jg8Clrzl5y9k2iPn4CX3pcBVjWo5npuEng4eDvaLWOHx4T5vLk_tL08hfLt_U7vqSzQtAVC8ryP5Ipd0PdgDEyqoQuS2UJ6ghmyH2rF80clMsYvupPgjThmBX84lvJrVI6UUo2E3W-PJHvdNYS");'></div>
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A cute dog sitting patiently by its owner's feet at the cafe."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDx58kb7Xd0NdOp1v2py1s33eSGlz2DeZg9-dedkpxoNtFIucwsijtO7EgL4gq0PuhBigMCYvByLJdxgSbmwZ_EN0lnUs180hv0hd_wlRbXBnQnAV2uOG9oTv3-BUtpcRL75Zc_9y-z5QLxA4v48F1kavz0dGFzbvGdqnwV7Hky239xoBOaxkQJ_tnIrqfFfvY1PXl5KTasj3gJtLcg7LIDW3_9-DUogwwcABTW72cI08LR-3mFbqDplN0LYhfG1gTQbcXwz7yPfvaW");'></div>
+                    </section>
+                    <!-- CTASection for Events -->
+                    <section class="bg-surface-light dark:bg-surface-dark my-10 mx-4 rounded-xl" id="events">
+                        <div class="@container">
+                            <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20 text-center items-center">
+                                <div class="flex flex-col gap-2">
+                                    <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                        Host Your Small Events Here</h1>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
+                                        From birthday parties and team meetups to workshops and celebrations, we offer
+                                        the perfect backdrop for your special occasions. Contact us to get started.</p>
+                                </div>
+                                <div class="flex justify-center">
+                                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                        <span class="truncate">Inquire Now</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Call to Action Section -->
+                    <section class="py-16 md:py-24 text-center">
+                        <h2 class="text-3xl md:text-5xl font-black text-text-light-primary dark:text-text-dark-primary tracking-tighter">
+                            Work. Chill. Repeat.</h2>
+                    </section>
+                    <!-- Visit Us Section -->
+                    <section class="py-10 sm:py-16 px-4 bg-background-light dark:bg-background-dark" id="visit">
+                        <div class="flex flex-col gap-4 text-center items-center mb-10">
+                            <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                Visit Us</h1>
+                        </div>
+                        \
+                        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                            <div class="flex flex-col gap-6 text-text-light-primary dark:text-text-dark-primary text-center md:text-left">
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                                        Address</h3>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary">Shop 3. 158, 60
+                                        ft Road, NRI Layout, Kalkere, Bengaluru, Karnataka 560016</p>
+                                    <a class="text-primary font-bold inline-flex items-center gap-2 justify-center md:justify-start"
+                                       href="https://maps.app.goo.gl/9EL6xaXJe2Bioso96" target="_blank">
+                                        Get Directions on Google Maps <span class="material-symbols-outlined">arrow_forward</span>
+                                    </a>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                                        Contact</h3>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary">+91 98765
+                                        43210</p>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                                        Hours</h3>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary">Open Daily: 9:00
+                                        AM - 13:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="w-full aspect-[4/3] rounded-xl bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                                <img class="w-full h-full object-cover"
+                                     data-alt="A stylized map showing the location of Bangalore"
+                                     data-location="Bangalore"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUPmJOET8UEnF7rbYYVeQBnnq-kEGZ7oFgnNVh274KHfONFoegMseURQ_IitQidkrToJRhzRSyB-ti6wUfgPMakwEVy-_d8bYnoFijtB74WWo_BUZrSmXy6Q_IcTTRV74GaOxmotiwXuEi4RnitthaO5fXyVHwy8LBYPdSIrij3Lu3K6WsIhUKXZX8BWQcuk5kBDCCVFDzFkWWjuei_R4zHAdNfH-irOPHxiMzYYg_Vzu9BUm3HZE30sC140uHC-ySQJmET6qOS8SQ"/>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <!-- Footer -->
+                <footer class="mt-auto border-t border-text-light-primary/10 dark:border-text-dark-primary/10 py-8 px-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+                        <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">© 2023 Pi Café. All
+                            rights reserved.</p>
+                        <div class="flex gap-4">
+                            <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
+                               href="https://m.facebook.com/people/Pi-Cafe/61550997746273/" target="_blank">Facebook</a>
+                            <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
+                               href="https://www.instagram.com/3dot14cafe/" target="_blank">Instagram</a>
+                            <!--<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
+                               href="#">Twitter</a>-->
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
