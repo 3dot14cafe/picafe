@@ -44,98 +44,111 @@
                 <!-- TopNavBar -->
                 <header x-data="{ open: false }"
                         class="sticky top-0 z-10 flex items-center justify-between border-b border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-6 lg:px-10 py-3">
-                    <div class="flex items-center justify-between">
-                        <!-- Logo -->
-                        <a href="#" class="flex items-center gap-3 text-text-light-primary dark:text-text-dark-primary">
-                            <div class="size-10 sm:size-12">
-                                <img src="static/pi_logo.png" alt="Pi Café" class="w-full h-full object-contain"/>
-                            </div>
-                            <h2 class="text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">Pi Café</h2>
-                        </a>
+                    <!-- Logo -->
+                    <a class="flex items-center gap-3 text-text-light-primary dark:text-text-dark-primary"
+                       href="#">
+                        <div class="size-10 sm:size-12">
+                            <img src="static/pi_logo.png" alt="Pi Café" class="w-full h-full object-contain"/>
+                        </div>
+                        <h2 class="text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">
+                            Pi Café
+                        </h2>
+                    </a>
 
-                        <!-- Desktop Nav -->
-                        <nav class="hidden md:flex items-center gap-8">
+                    <!-- Desktop Nav -->
+                    <div class="hidden md:flex flex-1 justify-end gap-8">
+                        <div class="flex items-center gap-9">
                             <a href="#about"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">About</a>
-                            <a href="#fitnesspi"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Fitness
-                                Pi</a>
-                            <a href="#events"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Events</a>
-                            <a href="#shootmovie"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Shoot
-                                Movie</a>
-                            <a href="#visit"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Visit
-                                Us</a>
-                            <a
-                                    href="tel:+917338018445"
-                                    class="flex items-center justify-center h-10 px-4 rounded-lg bg-primary text-white text-sm font-bold"
+                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
+                            >About</a
                             >
-                                Book a Table
-                            </a>
-                        </nav>
+                            <a href="#fitnesspi"
+                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
+                            >Fitness Pi</a
+                            >
+                            <a href="#events"
+                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
+                            >Events</a
+                            >
+                            <a href="#shootmovie"
+                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
+                            >Shoot Movie</a
+                            >
+                            <a href="#visit"
+                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
+                            >Visit Us</a
+                            >
+                        </div>
+                        <a href="tel:+917338018445"
+                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-[0.015em]"
+                        >
+                            <span class="truncate">Book a Table</span>
+                        </a>
+                    </div>
 
-                        <!-- Mobile Menu Button -->
+                    <!-- Mobile Menu Button -->
+                    <div class="hidden md:flex flex-1 justify-end gap-8">
                         <button
-                                id="menuBtn"
+                                @click="open = !open"
                                 class="md:hidden flex items-center justify-center w-10 h-10 text-text-light-primary dark:text-text-dark-primary focus:outline-none"
                                 aria-label="Toggle menu"
                         >
-                            <!-- Menu Icon -->
-                            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke-width="2" stroke="currentColor" class="size-6">
+                            <svg
+                                    x-show="!open"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="size-6"
+                            >
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
-                            <!-- Close Icon -->
-                            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke-width="2" stroke="currentColor" class="size-6 hidden">
+                            <svg x-show="open" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                             </svg>
                         </button>
-                    </div>
 
-                    <!-- Mobile Dropdown Menu -->
-                    <nav
-                            id="mobileMenu"
-                            class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden"
-                    >
-                        <div class="flex flex-col items-start p-4 gap-4">
-                            <a href="#about"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">About</a>
-                            <a href="#fitnesspi"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Fitness
-                                Pi</a>
-                            <a href="#events"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Events</a>
-                            <a href="#shootmovie"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Shoot
-                                Movie</a>
-                            <a href="#visit"
-                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Visit
-                                Us</a>
-                            <a
-                                    href="tel:+917338018445"
-                                    class="w-full flex items-center justify-center h-10 rounded-lg bg-primary text-white text-sm font-bold"
-                            >
-                                Book a Table
-                            </a>
+                        <!-- Mobile Dropdown Menu -->
+                        <div x-show="open" @click.away="open = false"
+                             class="absolute top-full left-0 w-full bg-background-light dark:bg-background-dark border-t border-text-light-primary/10 dark:border-text-dark-primary/10 md:hidden">
+                            <nav class="flex flex-col items-start p-4 gap-4">
+                                <a href="#about"
+                                   class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">About</a>
+                                <a href="#fitnesspi"
+                                   class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Fitness
+                                    Pi</a>
+                                <a href="#events"
+                                   class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Events</a>
+                                <a href="#shootmovie"
+                                   class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Shoot
+                                    Movie</a>
+                                <a href="#visit"
+                                   class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Visit
+                                    Us</a>
+                                <a
+                                        href="tel:+917338018445"
+                                        class="mt-2 w-full flex items-center justify-center rounded-lg h-10 bg-primary text-white text-sm font-bold"
+                                >
+                                    Book a Table
+                                </a>
+                            </nav>
                         </div>
-                    </nav>
-                    <script>
-                        const btn = document.getElementById("menuBtn");
-                        const menu = document.getElementById("mobileMenu");
-                        const menuIcon = document.getElementById("menuIcon");
-                        const closeIcon = document.getElementById("closeIcon");
+                        <script>
+                            const btn = document.getElementById("menuBtn");
+                            const menu = document.getElementById("mobileMenu");
+                            const menuIcon = document.getElementById("menuIcon");
+                            const closeIcon = document.getElementById("closeIcon");
 
-                        btn.addEventListener("click", () => {
-                          const isOpen = menu.classList.contains("max-h-0");
-                          menu.classList.toggle("max-h-0", !isOpen);
-                          menu.classList.toggle("max-h-[500px]", isOpen);
-                          menuIcon.classList.toggle("hidden", isOpen);
-                          closeIcon.classList.toggle("hidden", !isOpen);
-                        });
-                    </script>
+                            btn.addEventListener("click", () => {
+                              const isOpen = menu.classList.contains("max-h-0");
+                              menu.classList.toggle("max-h-0", !isOpen);
+                              menu.classList.toggle("max-h-[500px]", isOpen);
+                              menuIcon.classList.toggle("hidden", isOpen);
+                              closeIcon.classList.toggle("hidden", !isOpen);
+                            });
+                        </script>
 
 
                 </header>
