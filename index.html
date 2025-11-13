@@ -44,356 +44,345 @@
                 <!-- TopNavBar -->
                 <header x-data="{ open: false }"
                         class="sticky top-0 z-10 flex items-center justify-between border-b border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-6 lg:px-10 py-3">
-                    <!-- Logo -->
-                    <a class="flex items-center gap-3 text-text-light-primary dark:text-text-dark-primary"
-                       href="#">
-                        <div class="size-10 sm:size-12">
-                            <img src="static/pi_logo.png" alt="Pi Café" class="w-full h-full object-contain"/>
-                        </div>
-                        <h2 class="text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">
-                            Pi Café
-                        </h2>
-                    </a>
-
-                    <!-- Desktop Nav -->
-                    <div class="hidden md:flex flex-1 justify-end gap-8">
-                        <div class="flex items-center gap-9">
-                            <a href="#about"
-                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
-                            >About</a
-                            >
-                            <a href="#fitnesspi"
-                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
-                            >Fitness Pi</a
-                            >
-                            <a href="#events"
-                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
-                            >Events</a
-                            >
-                            <a href="#shootmovie"
-                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
-                            >Shoot Movie</a
-                            >
-                            <a href="#visit"
-                               class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium hover:text-primary dark:hover:text-primary"
-                            >Visit Us</a
-                            >
-                        </div>
-                        <a href="tel:+917338018445"
-                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-[0.015em]"
-                        >
-                            <span class="truncate">Book a Table</span>
+                    <div class="flex items-center justify-between">
+                        <!-- Logo -->
+                        <a href="#" class="flex items-center gap-3 text-text-light-primary dark:text-text-dark-primary">
+                            <div class="size-10 sm:size-12">
+                                <img src="static/pi_logo.png" alt="Pi Café" class="w-full h-full object-contain"/>
+                            </div>
+                            <h2 class="text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">Pi Café</h2>
                         </a>
+
+                        <!-- Desktop Nav -->
+                        <nav class="hidden md:flex items-center gap-8">
+                            <a href="#about"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">About</a>
+                            <a href="#fitnesspi"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Fitness
+                                Pi</a>
+                            <a href="#events"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Events</a>
+                            <a href="#shootmovie"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Shoot
+                                Movie</a>
+                            <a href="#visit"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Visit
+                                Us</a>
+                            <a
+                                    href="tel:+917338018445"
+                                    class="flex items-center justify-center h-10 px-4 rounded-lg bg-primary text-white text-sm font-bold"
+                            >
+                                Book a Table
+                            </a>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button
+                                id="menuBtn"
+                                class="md:hidden flex items-center justify-center w-10 h-10 text-text-light-primary dark:text-text-dark-primary focus:outline-none"
+                                aria-label="Toggle menu"
+                        >
+                            <!-- Menu Icon -->
+                            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                 stroke-width="2" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                            <!-- Close Icon -->
+                            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                 stroke-width="2" stroke="currentColor" class="size-6 hidden">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
                     </div>
 
-                    <!-- Mobile Menu Button -->
-                    <button
-                            id="menuBtn"
-                            class="md:hidden flex items-center justify-center w-10 h-10 text-text-light-primary dark:text-text-dark-primary focus:outline-none"
-                            aria-label="Toggle menu"
+                    <!-- Mobile Dropdown Menu -->
+                    <nav
+                            id="mobileMenu"
+                            class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden"
                     >
-                        <!-- Menu Icon -->
-                        <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                             stroke-width="2" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                        <!-- Close Icon -->
-                        <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                             stroke-width="2" stroke="currentColor" class="size-6 hidden">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
-            </div>
+                        <div class="flex flex-col items-start p-4 gap-4">
+                            <a href="#about"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">About</a>
+                            <a href="#fitnesspi"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Fitness
+                                Pi</a>
+                            <a href="#events"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Events</a>
+                            <a href="#shootmovie"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Shoot
+                                Movie</a>
+                            <a href="#visit"
+                               class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Visit
+                                Us</a>
+                            <a
+                                    href="tel:+917338018445"
+                                    class="w-full flex items-center justify-center h-10 rounded-lg bg-primary text-white text-sm font-bold"
+                            >
+                                Book a Table
+                            </a>
+                        </div>
+                    </nav>
+                    <script>
+                        const btn = document.getElementById("menuBtn");
+                        const menu = document.getElementById("mobileMenu");
+                        const menuIcon = document.getElementById("menuIcon");
+                        const closeIcon = document.getElementById("closeIcon");
 
-            <!-- Mobile Dropdown Menu -->
-            <nav
-                    id="mobileMenu"
-                    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden"
-            >
-                <div class="flex flex-col items-start p-4 gap-4">
-                    <a href="#about"
-                       class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">About</a>
-                    <a href="#fitnesspi"
-                       class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Fitness
-                        Pi</a>
-                    <a href="#events"
-                       class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Events</a>
-                    <a href="#shootmovie"
-                       class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Shoot
-                        Movie</a>
-                    <a href="#visit"
-                       class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">Visit
-                        Us</a>
-                    <a
-                            href="tel:+917338018445"
-                            class="w-full flex items-center justify-center h-10 rounded-lg bg-primary text-white text-sm font-bold"
-                    >
-                        Book a Table
-                    </a>
-                </div>
-            </nav>
-            <script>
-                const btn = document.getElementById("menuBtn");
-                const menu = document.getElementById("mobileMenu");
-                const menuIcon = document.getElementById("menuIcon");
-                const closeIcon = document.getElementById("closeIcon");
-
-                btn.addEventListener("click", () => {
-                  const isOpen = menu.classList.contains("max-h-0");
-                  menu.classList.toggle("max-h-0", !isOpen);
-                  menu.classList.toggle("max-h-[500px]", isOpen);
-                  menuIcon.classList.toggle("hidden", isOpen);
-                  closeIcon.classList.toggle("hidden", !isOpen);
-                });
-            </script>
+                        btn.addEventListener("click", () => {
+                          const isOpen = menu.classList.contains("max-h-0");
+                          menu.classList.toggle("max-h-0", !isOpen);
+                          menu.classList.toggle("max-h-[500px]", isOpen);
+                          menuIcon.classList.toggle("hidden", isOpen);
+                          closeIcon.classList.toggle("hidden", !isOpen);
+                        });
+                    </script>
 
 
-            </header>
+                </header>
 
-            <main>
-                <!-- HeroSection -->
-                <section class="min-h-[60vh] md:min-h-[80vh] flex flex-col justify-center">
-                    <div class="@container">
-                        <div class="p-4">
-                            <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4 text-center"
-                                 data-alt="Sunny outdoor seating area of a cafe with lush green plants and wooden tables."
-                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("static/pi_backyard.jpeg");'>
+                <main>
+                    <!-- HeroSection -->
+                    <section class="min-h-[60vh] md:min-h-[80vh] flex flex-col justify-center">
+                        <div class="@container">
+                            <div class="p-4">
+                                <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4 text-center"
+                                     data-alt="Sunny outdoor seating area of a cafe with lush green plants and wooden tables."
+                                     style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("static/pi_backyard.jpeg");'>
+                                    <div class="flex flex-col gap-2">
+                                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                                            Pi Café</h1>
+                                        <h2 class="text-white text-lg font-normal leading-normal @[480px]:text-xl @[480px]:font-normal @[480px]:leading-normal max-w-2xl">
+                                            Your Cozy Garden Café to Work, Chill &amp; Celebrate. Welcome to your
+                                            tranquil garden escape in the heart of Bangalore.</h2>
+                                    </div>
+                                    <div class="flex-wrap gap-3 flex justify-center">
+                                        <a href="static/pi_menu.pdf" target="_blank"
+                                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                            <span class="truncate">View Menu</span></a>
+                                        <a href="tel:+917338018445"
+                                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-background-light/90 text-text-light-primary text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                            <span class="truncate">Book a Table</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- FeatureSection -->
+                    <section class="flex flex-col gap-10 px-4 py-10 sm:py-16 @container" id="about">
+                        <div class="flex flex-col gap-4 text-center items-center">
+                            <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                Why You’ll Love Pi Café</h1>
+                            <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
+                                We've created the perfect urban sanctuary for you to relax, work, or celebrate. Here are
+                                a few reasons you'll feel right at home.</p>
+                        </div>
+                        <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 p-0">
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">deck</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Cozy Garden Seating</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Relax in our lush, green outdoor space.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">wifi</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Free High-Speed Wi-Fi</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Stay connected for work or leisure.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">coffee</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Tasty Food &amp; Coffee</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Enjoy our delicious, freshly prepared menu.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">menu_book</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Books &amp; Board Games</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Unwind with our curated collection.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">pets</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Pet-Friendly Zone</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Bring your furry friends along with you.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">music_note</span>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
+                                        Peaceful Music</h2>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
+                                        Enjoy a calm and productive atmosphere.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- ImageGrid -->
+                    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A close-up of a steaming cup of latte art."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCk0aQjn2f3VHg0mshcI7OqYmAJq4zmsKJc3AX6YFI8_wjizLj5v8Ijs1hClyLTyr3GYk1Jmr6XxBScio4ZJw9AW5wKlV4cIEdCf0HEQ5c__zDTGsIdtVYCmcCusGoTC0mOMCW4S3CctQ7S70VZ-R0GKMfsf1kUicoRhcaK7iiZ1NuW1RZTaIfBKe2dPorXX80QcbQtapnLWKZu6zgforygJ54i2vT6pYcbNsZy-mXcwIUGG4tqXreduD2gBVM-NlLRVqdpFlDB9MoJ");'></div>
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A smiling person working on a laptop in the cafe garden."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCy33Y2YLgCefGUnTGOB7rPgPSJvVt8ZFH8fU5cdDhGnlLR5W9HoRYlz2aR02qMyBIoW1ndW6cpZhUHledlEA--BkL2901vEf3Loy7MQ3fT8-hkT-fQFHeKrBGlXEdJ1sGoOf-mWbKTW9Cwq93sl55XC-XSqj6MTpRF5SgryXm57wr8fIP8EnTeLuedp2vQ89cjmMjQ15p84C3ZWcJ1jLyeaCJBVvW6C3aLoSzKhVTKzSyLoOrWnJ52fEBk1H32GkZkV2vOSQDvgtFN");'></div>
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A group of friends laughing and enjoying food at a table."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUTJBHIvM9C3-mzjQesTH03EtZCy0D113F7iwjC_oaVveemqQ86IoLsm9BciRVA7RZ2321va26IuS3SLzZxC7b5Diri9GD_2GtIJ5ZOLyKcOtja4CwDV_govc8J7jg8Clrzl5y9k2iPn4CX3pcBVjWo5npuEng4eDvaLWOHx4T5vLk_tL08hfLt_U7vqSzQtAVC8ryP5Ipd0PdgDEyqoQuS2UJ6ghmyH2rF80clMsYvupPgjThmBX84lvJrVI6UUo2E3W-PJHvdNYS");'></div>
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                             data-alt="A cute dog sitting patiently by its owner's feet at the cafe."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDx58kb7Xd0NdOp1v2py1s33eSGlz2DeZg9-dedkpxoNtFIucwsijtO7EgL4gq0PuhBigMCYvByLJdxgSbmwZ_EN0lnUs180hv0hd_wlRbXBnQnAV2uOG9oTv3-BUtpcRL75Zc_9y-z5QLxA4v48F1kavz0dGFzbvGdqnwV7Hky239xoBOaxkQJ_tnIrqfFfvY1PXl5KTasj3gJtLcg7LIDW3_9-DUogwwcABTW72cI08LR-3mFbqDplN0LYhfG1gTQbcXwz7yPfvaW");'></div>
+                    </section>
+                    <!-- CTASection for Events -->
+                    <section class="py-10 sm:py-16 px-4 bg-[#F0F8F0] dark:bg-[#203620] rounded-xl m-4" id="fitnesspi">
+                        <div class="flex flex-col gap-4 text-center items-center">
+                            <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-4xl font-bold leading-tight @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                Fitness Pi — A Plate Full of Protein. Eat Smart. Build Strong.</h1>
+                            <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
+                                Macro-balanced meals with transparent nutrition and real ingredients.</p>
+                            <p class="text-text-light-secondary dark:text-text-dark-secondary text-6xl font-black leading-normal max-w-[720px] uppercase tracking-widest">
+                                Coming Soon</p>
+                        </div>
+                    </section>
+                    <section class="px-4 py-8">
+                        <div class="w-full aspect-[2/1] bg-center bg-no-repeat bg-cover rounded-xl"
+                             data-alt="A plate of grilled chicken salad with mixed greens, cherry tomatoes, and a light vinaigrette dressing, placed on a rustic wooden table."
+                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCT2D1sitZ2e4n7O-hDp5MtFSANnIufXQJjH9KI_6xHOK3oGUO4stvNibAdkJWqGYv3CIWl1Go4NMROE7a_DfXGuoktrHzIOL917ruZeJM81kLXeSX5gRJ0hLfz-W7y_QDAVtf9v1GhBtikqzCMouCYFayTBalQKCixQe4uVuf9in1lQU1tH0iofYvVzXlR4-uUDhqc-SbGaDkOl4nm_W2VBLUksaMHoAwLXmhZ8BnyFsAQNDeRMVg6a0GxRNBHnW221bnBQzzJzHvU");'></div>
+                    </section>
+                    <section class="bg-[#FFF5EE] dark:bg-[#3A2F2F] my-10 mx-4 rounded-xl" id="events">
+                        <div class="@container">
+                            <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20 text-center items-center">
                                 <div class="flex flex-col gap-2">
-                                    <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                                        Pi Café</h1>
-                                    <h2 class="text-white text-lg font-normal leading-normal @[480px]:text-xl @[480px]:font-normal @[480px]:leading-normal max-w-2xl">
-                                        Your Cozy Garden Café to Work, Chill &amp; Celebrate. Welcome to your
-                                        tranquil garden escape in the heart of Bangalore.</h2>
+                                    <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                        Host Your Small Events Here</h1>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
+                                        From birthday parties and team meetups to workshops and celebrations, we offer
+                                        the perfect backdrop for your special occasions. Contact us to get started.</p>
                                 </div>
-                                <div class="flex-wrap gap-3 flex justify-center">
-                                    <a href="static/pi_menu.pdf" target="_blank"
-                                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                                        <span class="truncate">View Menu</span></a>
+                                <div class="flex justify-center">
+                                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                        <span class="truncate">Inquire Now</span></button>
+                                </div>
+                                <div class="w-full grid grid-cols-2 md:grid-cols-3 gap-4 pt-10">
+                                    <div class="aspect-square bg-cover bg-center rounded-lg"
+                                         data-alt="A small group of people celebrating a birthday with a cake at an outdoor cafe."
+                                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADJFGpW9rViTP19LjzybsZjytwz2u2W6iJ6Wtzui3roSmwjkOlEA09HaDY3hoETEynjAAoCfdGEXrGsr55vyCeVSdnPrFmJ2dLiFrml40xqgY-4b5KiGCq4yZJis13z0MfkuyFma_ywASXrDM4lWVwcQOfKr9vjCo0WKHXqbSA-NYExTw22cJYtJe6zR5CuUjrROh6RxBMmQDJpMi3MGpxkI69wJbcIRnZTqihTo8aNo8KY7iRBF3hfORm5JLzW-_v_Vd7w3IHLhev")'></div>
+                                    <div class="aspect-square bg-cover bg-center rounded-lg"
+                                         data-alt="A corporate team having a casual meeting at a sunlit cafe table."
+                                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKSGAtqVOKUHRa0aQiQpIApbGil58R14VnhNp-SHU8j54X1fa8dq5kodps1IzYou_hpbGRFzK9eCzeBeS7IZhGEVnmzJdGcExroKIFm0qERtPwJpbtwUfC_gizwJaCNSno-1TPj8MXTwKt0cnN9MIbELDBCsxMtCfhOZT7SWpM78ne71e5Gr8iYkTBTaUUIGgtGlSjhjM-7gDcBMdPw8_Qn1KJSsgp4tI8B_UmAzlEFLOoevQvXF4x79mwUJQ_MxBRIQNKHlEE2-Ex")'></div>
+                                    <div class="aspect-square bg-cover bg-center rounded-lg col-span-2 md:col-span-1"
+                                         data-alt="A cozy book club meeting in a garden cafe setting."
+                                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAX679kvwKUlOx7MfSXu4zNWjFTaoe-VMsC4-qmSiSv4rdoH0b1sLK2PT0-dEnbZkPhZ-q5rcB7nkiGhjQ0RUUn9cCOFtTSo-wNyLdm3Uvuxx41OMlW0y0aL5s5Wb6-h1k_RXb_RdeMKTjh1YPwD2KIePwIjXNvtYdPMkI_m0Y46fXZrXngTl_sSJ5GPl3WfErSdO2Sa9JbaBg9CA6Uyx2ouduRQ_wMzVHxYHovXgFx-XLMRbyitscdqnWuYo-icYCE09iwG1A2gtHR")'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="bg-[#F0F5FA] dark:bg-[#1E252B] my-10 mx-4 rounded-xl" id="shootmovie">
+                        <div class="@container">
+                            <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20 text-center items-center">
+                                <div class="flex flex-col gap-2">
+                                    <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                        Shoot Your Movie Here</h1>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
+                                        Our picturesque garden cafe provides a stunning and versatile backdrop for film
+                                        and photoshoots. Inquire about our special packages for production crews.</p>
+                                </div>
+                                <div class="flex justify-center">
                                     <a href="tel:+917338018445"
-                                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-background-light/90 text-text-light-primary text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                                        <span class="truncate">Book a Table</span></a>
+                                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                        <span class="truncate">Book Location</span></a>
+                                </div>
+                                <div class="w-full grid grid-cols-2 md:grid-cols-3 gap-4 pt-10">
+                                    <div class="aspect-square bg-cover bg-center rounded-lg col-span-2 md:col-span-1"
+                                         data-alt="A wide shot of the cafe's garden area with string lights, looking cinematic."
+                                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD66htNQ5o2jaZidG3F4LrU5-GdbjGUpiLGKqtYa0k6Fpk1pOscHvBIR7Z-O2FGWQbpdDyIMmXFdCzrOEKSIle4z1DjQsM-wc7dV6k3Q2E41rwBDF5choqie53nu-t8avURikqdF2rk81vZ4lej_uma6LiPJmLmZmsvB7ywljj5OlsYA_3Ir-bEPGNFCS8CYmD29frMwBivHiutYloNp5xp9zJWXMHuFLRCqZNg43KaK5UfPggvi0t0n8-nbmrIpRJMKRlrtdn03z1y")'></div>
+                                    <div class="aspect-square bg-cover bg-center rounded-lg"
+                                         data-alt="A close-up shot of a rustic wooden table in the cafe, artfully arranged for a scene."
+                                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWT8QYrrCmq9SH70K2-ytXSLuYMKT7XxEhVu0I9tp3RxMYWcGhAk_cfJcJUJDhPQk-2GCkIrnfdcITncanvtrXz9f6d6mFEC57IQglqNsc0JMqo8UuOfHRH88PkVo6Hp8PevAcCQ5JIIrbVrk6r4A7snG1OPGzGSJXartrqT4Y2Lh_hgPhmYOKJCc25pVd1UMV9Sqa1U8vfkuLcpPoo7PVKVOu_47cW6kG9OzNpTNlpznUL_t1Zv9z0FApa8HvyNBfkXs5-q0kZ-0K")'></div>
+                                    <div class="aspect-square bg-cover bg-center rounded-lg"
+                                         data-alt="A film camera set up in the cafe, pointing towards an actor sitting at a table."
+                                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYKNMwPmb2fVvSPOHEAuy-0mt-AVAoICu-Y14_S-FAl4W5iXg1-eggupw1K3vAdpwt22FLPWkolddGua_rqGRO4LqfGGrwnreoRkkVkV0YHilXS4APgX8-TAWgI_HxwTvZfFbrSMwMrU72RxmZ0nhCC347SaZ9ahtK0i3Y3CNPtHY_xBxzWRtPSDRPpLOPSerOoXtAt5ibdh1ZHXaSHYi3krHR4_G7stpTf2NeIEmTD_7nBk5smK6Bn-KHjyth22PFif_D70GnnMvy")'></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <!-- FeatureSection -->
-                <section class="flex flex-col gap-10 px-4 py-10 sm:py-16 @container" id="about">
-                    <div class="flex flex-col gap-4 text-center items-center">
-                        <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                            Why You’ll Love Pi Café</h1>
-                        <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
-                            We've created the perfect urban sanctuary for you to relax, work, or celebrate. Here are
-                            a few reasons you'll feel right at home.</p>
-                    </div>
-                    <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 p-0">
-                        <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
-                            <span class="material-symbols-outlined text-primary text-4xl">deck</span>
-                            <div class="flex flex-col gap-1">
-                                <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
-                                    Cozy Garden Seating</h2>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
-                                    Relax in our lush, green outdoor space.</p>
+                    </section><!-- Call to Action Section -->
+                    <section class="py-16 md:py-24 text-center">
+                        <h2 class="text-3xl md:text-5xl font-black text-text-light-primary dark:text-text-dark-primary tracking-tighter">
+                            Work. Chill. Repeat.</h2>
+                    </section>
+                    <!-- Visit Us Section -->
+                    <section class="py-10 sm:py-16 px-4 bg-background-light dark:bg-background-dark" id="visit">
+                        <div class="flex flex-col gap-4 text-center items-center mb-10">
+                            <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                                Visit Us</h1>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                            <div class="flex flex-col gap-6 text-text-light-primary dark:text-text-dark-primary text-center md:text-left">
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                                        Address</h3>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary">Shop 3. 158, 60
+                                        ft Road, NRI Layout, Kalkere, Bengaluru, Karnataka 560016</p>
+                                    <a class="text-primary font-bold inline-flex items-center gap-2 justify-center md:justify-start"
+                                       href="https://maps.app.goo.gl/9EL6xaXJe2Bioso96" target="_blank">
+                                        Get Directions on Google Maps <span class="material-symbols-outlined">arrow_forward</span>
+                                    </a>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                                        Contact</h3>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary"><a
+                                            href="tel:+917338018445">+91 07338018445</a></p>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                                        Hours</h3>
+                                    <p class="text-text-light-secondary dark:text-text-dark-secondary">Open Daily: 9:00
+                                        AM - 10:30 PM</p>
+                                </div>
+                            </div>
+                            <div class="w-full aspect-[4/3] rounded-xl bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                                <img class="w-full h-full object-cover"
+                                     data-alt="A stylized map showing the location of Bangalore"
+                                     data-location="Bangalore"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUPmJOET8UEnF7rbYYVeQBnnq-kEGZ7oFgnNVh274KHfONFoegMseURQ_IitQidkrToJRhzRSyB-ti6wUfgPMakwEVy-_d8bYnoFijtB74WWo_BUZrSmXy6Q_IcTTRV74GaOxmotiwXuEi4RnitthaO5fXyVHwy8LBYPdSIrij3Lu3K6WsIhUKXZX8BWQcuk5kBDCCVFDzFkWWjuei_R4zHAdNfH-irOPHxiMzYYg_Vzu9BUm3HZE30sC140uHC-ySQJmET6qOS8SQ"/>
                             </div>
                         </div>
-                        <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
-                            <span class="material-symbols-outlined text-primary text-4xl">wifi</span>
-                            <div class="flex flex-col gap-1">
-                                <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
-                                    Free High-Speed Wi-Fi</h2>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
-                                    Stay connected for work or leisure.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
-                            <span class="material-symbols-outlined text-primary text-4xl">coffee</span>
-                            <div class="flex flex-col gap-1">
-                                <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
-                                    Tasty Food &amp; Coffee</h2>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
-                                    Enjoy our delicious, freshly prepared menu.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
-                            <span class="material-symbols-outlined text-primary text-4xl">menu_book</span>
-                            <div class="flex flex-col gap-1">
-                                <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
-                                    Books &amp; Board Games</h2>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
-                                    Unwind with our curated collection.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
-                            <span class="material-symbols-outlined text-primary text-4xl">pets</span>
-                            <div class="flex flex-col gap-1">
-                                <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
-                                    Pet-Friendly Zone</h2>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
-                                    Bring your furry friends along with you.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col flex-1 gap-3 rounded-xl border border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light dark:bg-surface-dark p-4 items-center text-center">
-                            <span class="material-symbols-outlined text-primary text-4xl">music_note</span>
-                            <div class="flex flex-col gap-1">
-                                <h2 class="text-text-light-primary dark:text-text-dark-primary text-base font-bold leading-tight">
-                                    Peaceful Music</h2>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal">
-                                    Enjoy a calm and productive atmosphere.</p>
-                            </div>
+                    </section>
+                </main>
+                <!-- Footer -->
+                <footer class="mt-auto border-t border-text-light-primary/10 dark:border-text-dark-primary/10 py-8 px-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+                        <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">© 2023 Pi Café. All
+                            rights reserved.</p>
+                        <div class="flex gap-4">
+                            <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
+                               href="https://m.facebook.com/people/Pi-Cafe/61550997746273/" target="_blank">Facebook</a>
+                            <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
+                               href="https://www.instagram.com/3dot14cafe/" target="_blank">Instagram</a>
+                            <!--<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
+                               href="#">Twitter</a>-->
                         </div>
                     </div>
-                </section>
-                <!-- ImageGrid -->
-                <section class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                         data-alt="A close-up of a steaming cup of latte art."
-                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCk0aQjn2f3VHg0mshcI7OqYmAJq4zmsKJc3AX6YFI8_wjizLj5v8Ijs1hClyLTyr3GYk1Jmr6XxBScio4ZJw9AW5wKlV4cIEdCf0HEQ5c__zDTGsIdtVYCmcCusGoTC0mOMCW4S3CctQ7S70VZ-R0GKMfsf1kUicoRhcaK7iiZ1NuW1RZTaIfBKe2dPorXX80QcbQtapnLWKZu6zgforygJ54i2vT6pYcbNsZy-mXcwIUGG4tqXreduD2gBVM-NlLRVqdpFlDB9MoJ");'></div>
-                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                         data-alt="A smiling person working on a laptop in the cafe garden."
-                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCy33Y2YLgCefGUnTGOB7rPgPSJvVt8ZFH8fU5cdDhGnlLR5W9HoRYlz2aR02qMyBIoW1ndW6cpZhUHledlEA--BkL2901vEf3Loy7MQ3fT8-hkT-fQFHeKrBGlXEdJ1sGoOf-mWbKTW9Cwq93sl55XC-XSqj6MTpRF5SgryXm57wr8fIP8EnTeLuedp2vQ89cjmMjQ15p84C3ZWcJ1jLyeaCJBVvW6C3aLoSzKhVTKzSyLoOrWnJ52fEBk1H32GkZkV2vOSQDvgtFN");'></div>
-                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                         data-alt="A group of friends laughing and enjoying food at a table."
-                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUTJBHIvM9C3-mzjQesTH03EtZCy0D113F7iwjC_oaVveemqQ86IoLsm9BciRVA7RZ2321va26IuS3SLzZxC7b5Diri9GD_2GtIJ5ZOLyKcOtja4CwDV_govc8J7jg8Clrzl5y9k2iPn4CX3pcBVjWo5npuEng4eDvaLWOHx4T5vLk_tL08hfLt_U7vqSzQtAVC8ryP5Ipd0PdgDEyqoQuS2UJ6ghmyH2rF80clMsYvupPgjThmBX84lvJrVI6UUo2E3W-PJHvdNYS");'></div>
-                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                         data-alt="A cute dog sitting patiently by its owner's feet at the cafe."
-                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDx58kb7Xd0NdOp1v2py1s33eSGlz2DeZg9-dedkpxoNtFIucwsijtO7EgL4gq0PuhBigMCYvByLJdxgSbmwZ_EN0lnUs180hv0hd_wlRbXBnQnAV2uOG9oTv3-BUtpcRL75Zc_9y-z5QLxA4v48F1kavz0dGFzbvGdqnwV7Hky239xoBOaxkQJ_tnIrqfFfvY1PXl5KTasj3gJtLcg7LIDW3_9-DUogwwcABTW72cI08LR-3mFbqDplN0LYhfG1gTQbcXwz7yPfvaW");'></div>
-                </section>
-                <!-- CTASection for Events -->
-                <section class="py-10 sm:py-16 px-4 bg-[#F0F8F0] dark:bg-[#203620] rounded-xl m-4" id="fitnesspi">
-                    <div class="flex flex-col gap-4 text-center items-center">
-                        <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-4xl font-bold leading-tight @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                            Fitness Pi — A Plate Full of Protein. Eat Smart. Build Strong.</h1>
-                        <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
-                            Macro-balanced meals with transparent nutrition and real ingredients.</p>
-                        <p class="text-text-light-secondary dark:text-text-dark-secondary text-6xl font-black leading-normal max-w-[720px] uppercase tracking-widest">
-                            Coming Soon</p>
-                    </div>
-                </section>
-                <section class="px-4 py-8">
-                    <div class="w-full aspect-[2/1] bg-center bg-no-repeat bg-cover rounded-xl"
-                         data-alt="A plate of grilled chicken salad with mixed greens, cherry tomatoes, and a light vinaigrette dressing, placed on a rustic wooden table."
-                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCT2D1sitZ2e4n7O-hDp5MtFSANnIufXQJjH9KI_6xHOK3oGUO4stvNibAdkJWqGYv3CIWl1Go4NMROE7a_DfXGuoktrHzIOL917ruZeJM81kLXeSX5gRJ0hLfz-W7y_QDAVtf9v1GhBtikqzCMouCYFayTBalQKCixQe4uVuf9in1lQU1tH0iofYvVzXlR4-uUDhqc-SbGaDkOl4nm_W2VBLUksaMHoAwLXmhZ8BnyFsAQNDeRMVg6a0GxRNBHnW221bnBQzzJzHvU");'></div>
-                </section>
-                <section class="bg-[#FFF5EE] dark:bg-[#3A2F2F] my-10 mx-4 rounded-xl" id="events">
-                    <div class="@container">
-                        <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20 text-center items-center">
-                            <div class="flex flex-col gap-2">
-                                <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                                    Host Your Small Events Here</h1>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
-                                    From birthday parties and team meetups to workshops and celebrations, we offer
-                                    the perfect backdrop for your special occasions. Contact us to get started.</p>
-                            </div>
-                            <div class="flex justify-center">
-                                <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                                    <span class="truncate">Inquire Now</span></button>
-                            </div>
-                            <div class="w-full grid grid-cols-2 md:grid-cols-3 gap-4 pt-10">
-                                <div class="aspect-square bg-cover bg-center rounded-lg"
-                                     data-alt="A small group of people celebrating a birthday with a cake at an outdoor cafe."
-                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADJFGpW9rViTP19LjzybsZjytwz2u2W6iJ6Wtzui3roSmwjkOlEA09HaDY3hoETEynjAAoCfdGEXrGsr55vyCeVSdnPrFmJ2dLiFrml40xqgY-4b5KiGCq4yZJis13z0MfkuyFma_ywASXrDM4lWVwcQOfKr9vjCo0WKHXqbSA-NYExTw22cJYtJe6zR5CuUjrROh6RxBMmQDJpMi3MGpxkI69wJbcIRnZTqihTo8aNo8KY7iRBF3hfORm5JLzW-_v_Vd7w3IHLhev")'></div>
-                                <div class="aspect-square bg-cover bg-center rounded-lg"
-                                     data-alt="A corporate team having a casual meeting at a sunlit cafe table."
-                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKSGAtqVOKUHRa0aQiQpIApbGil58R14VnhNp-SHU8j54X1fa8dq5kodps1IzYou_hpbGRFzK9eCzeBeS7IZhGEVnmzJdGcExroKIFm0qERtPwJpbtwUfC_gizwJaCNSno-1TPj8MXTwKt0cnN9MIbELDBCsxMtCfhOZT7SWpM78ne71e5Gr8iYkTBTaUUIGgtGlSjhjM-7gDcBMdPw8_Qn1KJSsgp4tI8B_UmAzlEFLOoevQvXF4x79mwUJQ_MxBRIQNKHlEE2-Ex")'></div>
-                                <div class="aspect-square bg-cover bg-center rounded-lg col-span-2 md:col-span-1"
-                                     data-alt="A cozy book club meeting in a garden cafe setting."
-                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAX679kvwKUlOx7MfSXu4zNWjFTaoe-VMsC4-qmSiSv4rdoH0b1sLK2PT0-dEnbZkPhZ-q5rcB7nkiGhjQ0RUUn9cCOFtTSo-wNyLdm3Uvuxx41OMlW0y0aL5s5Wb6-h1k_RXb_RdeMKTjh1YPwD2KIePwIjXNvtYdPMkI_m0Y46fXZrXngTl_sSJ5GPl3WfErSdO2Sa9JbaBg9CA6Uyx2ouduRQ_wMzVHxYHovXgFx-XLMRbyitscdqnWuYo-icYCE09iwG1A2gtHR")'></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="bg-[#F0F5FA] dark:bg-[#1E252B] my-10 mx-4 rounded-xl" id="shootmovie">
-                    <div class="@container">
-                        <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20 text-center items-center">
-                            <div class="flex flex-col gap-2">
-                                <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                                    Shoot Your Movie Here</h1>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal max-w-[720px]">
-                                    Our picturesque garden cafe provides a stunning and versatile backdrop for film
-                                    and photoshoots. Inquire about our special packages for production crews.</p>
-                            </div>
-                            <div class="flex justify-center">
-                                <a href="tel:+917338018445"
-                                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                                    <span class="truncate">Book Location</span></a>
-                            </div>
-                            <div class="w-full grid grid-cols-2 md:grid-cols-3 gap-4 pt-10">
-                                <div class="aspect-square bg-cover bg-center rounded-lg col-span-2 md:col-span-1"
-                                     data-alt="A wide shot of the cafe's garden area with string lights, looking cinematic."
-                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD66htNQ5o2jaZidG3F4LrU5-GdbjGUpiLGKqtYa0k6Fpk1pOscHvBIR7Z-O2FGWQbpdDyIMmXFdCzrOEKSIle4z1DjQsM-wc7dV6k3Q2E41rwBDF5choqie53nu-t8avURikqdF2rk81vZ4lej_uma6LiPJmLmZmsvB7ywljj5OlsYA_3Ir-bEPGNFCS8CYmD29frMwBivHiutYloNp5xp9zJWXMHuFLRCqZNg43KaK5UfPggvi0t0n8-nbmrIpRJMKRlrtdn03z1y")'></div>
-                                <div class="aspect-square bg-cover bg-center rounded-lg"
-                                     data-alt="A close-up shot of a rustic wooden table in the cafe, artfully arranged for a scene."
-                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWT8QYrrCmq9SH70K2-ytXSLuYMKT7XxEhVu0I9tp3RxMYWcGhAk_cfJcJUJDhPQk-2GCkIrnfdcITncanvtrXz9f6d6mFEC57IQglqNsc0JMqo8UuOfHRH88PkVo6Hp8PevAcCQ5JIIrbVrk6r4A7snG1OPGzGSJXartrqT4Y2Lh_hgPhmYOKJCc25pVd1UMV9Sqa1U8vfkuLcpPoo7PVKVOu_47cW6kG9OzNpTNlpznUL_t1Zv9z0FApa8HvyNBfkXs5-q0kZ-0K")'></div>
-                                <div class="aspect-square bg-cover bg-center rounded-lg"
-                                     data-alt="A film camera set up in the cafe, pointing towards an actor sitting at a table."
-                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYKNMwPmb2fVvSPOHEAuy-0mt-AVAoICu-Y14_S-FAl4W5iXg1-eggupw1K3vAdpwt22FLPWkolddGua_rqGRO4LqfGGrwnreoRkkVkV0YHilXS4APgX8-TAWgI_HxwTvZfFbrSMwMrU72RxmZ0nhCC347SaZ9ahtK0i3Y3CNPtHY_xBxzWRtPSDRPpLOPSerOoXtAt5ibdh1ZHXaSHYi3krHR4_G7stpTf2NeIEmTD_7nBk5smK6Bn-KHjyth22PFif_D70GnnMvy")'></div>
-                            </div>
-                        </div>
-                    </div>
-                </section><!-- Call to Action Section -->
-                <section class="py-16 md:py-24 text-center">
-                    <h2 class="text-3xl md:text-5xl font-black text-text-light-primary dark:text-text-dark-primary tracking-tighter">
-                        Work. Chill. Repeat.</h2>
-                </section>
-                <!-- Visit Us Section -->
-                <section class="py-10 sm:py-16 px-4 bg-background-light dark:bg-background-dark" id="visit">
-                    <div class="flex flex-col gap-4 text-center items-center mb-10">
-                        <h1 class="text-text-light-primary dark:text-text-dark-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                            Visit Us</h1>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-                        <div class="flex flex-col gap-6 text-text-light-primary dark:text-text-dark-primary text-center md:text-left">
-                            <div class="flex flex-col gap-2">
-                                <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
-                                    Address</h3>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary">Shop 3. 158, 60
-                                    ft Road, NRI Layout, Kalkere, Bengaluru, Karnataka 560016</p>
-                                <a class="text-primary font-bold inline-flex items-center gap-2 justify-center md:justify-start"
-                                   href="https://maps.app.goo.gl/9EL6xaXJe2Bioso96" target="_blank">
-                                    Get Directions on Google Maps <span
-                                        class="material-symbols-outlined">arrow_forward</span>
-                                </a>
-                            </div>
-                            <div class="flex flex-col gap-2">
-                                <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
-                                    Contact</h3>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary"><a
-                                        href="tel:+917338018445">+91 07338018445</a></p>
-                            </div>
-                            <div class="flex flex-col gap-2">
-                                <h3 class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
-                                    Hours</h3>
-                                <p class="text-text-light-secondary dark:text-text-dark-secondary">Open Daily: 9:00
-                                    AM - 10:30 PM</p>
-                            </div>
-                        </div>
-                        <div class="w-full aspect-[4/3] rounded-xl bg-gray-200 dark:bg-gray-800 overflow-hidden">
-                            <img class="w-full h-full object-cover"
-                                 data-alt="A stylized map showing the location of Bangalore"
-                                 data-location="Bangalore"
-                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUPmJOET8UEnF7rbYYVeQBnnq-kEGZ7oFgnNVh274KHfONFoegMseURQ_IitQidkrToJRhzRSyB-ti6wUfgPMakwEVy-_d8bYnoFijtB74WWo_BUZrSmXy6Q_IcTTRV74GaOxmotiwXuEi4RnitthaO5fXyVHwy8LBYPdSIrij3Lu3K6WsIhUKXZX8BWQcuk5kBDCCVFDzFkWWjuei_R4zHAdNfH-irOPHxiMzYYg_Vzu9BUm3HZE30sC140uHC-ySQJmET6qOS8SQ"/>
-                        </div>
-                    </div>
-                </section>
-            </main>
-            <!-- Footer -->
-            <footer class="mt-auto border-t border-text-light-primary/10 dark:border-text-dark-primary/10 py-8 px-4">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-                    <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">© 2023 Pi Café. All
-                        rights reserved.</p>
-                    <div class="flex gap-4">
-                        <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
-                           href="https://m.facebook.com/people/Pi-Cafe/61550997746273/" target="_blank">Facebook</a>
-                        <a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
-                           href="https://www.instagram.com/3dot14cafe/" target="_blank">Instagram</a>
-                        <!--<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary"
-                           href="#">Twitter</a>-->
-                    </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>
