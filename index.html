@@ -37,20 +37,16 @@
     </script>
 </head>
 <body class="font-display bg-background-light dark:bg-background-dark">
-<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-    <div class="layout-container flex h-full grow flex-col">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+    <div class="layout-container flex grow flex-col">
         <div class="flex flex-1 justify-center">
             <div class="layout-content-container flex flex-col max-w-6xl flex-1">
                 <!-- TopNavBar -->
-                <header
-                        x-data="{ open: false }"
-                        class="sticky top-0 z-10 flex items-center justify-between border-b border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-6 lg:px-10 py-3"
-                >
+                <header x-data="{ open: false }"
+                        class="sticky top-0 z-10 flex items-center justify-between border-b border-text-light-primary/10 dark:border-text-dark-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-6 lg:px-10 py-3">
                     <!-- Logo -->
-                    <a
-                            class="flex items-center gap-3 text-text-light-primary dark:text-text-dark-primary"
-                            href="#"
-                    >
+                    <a class="flex items-center gap-3 text-text-light-primary dark:text-text-dark-primary"
+                            href="#">
                         <div class="size-10 sm:size-12">
                             <img src="static/pi_logo.png" alt="Pi Café" class="w-full h-full object-contain"/>
                         </div>
