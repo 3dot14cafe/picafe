@@ -117,7 +117,7 @@
                             x-transition:leave-end="opacity-0 -translate-y-2"
                             class="absolute top-full left-0 w-full bg-background-light dark:bg-background-dark border-t border-text-light-primary/10 dark:border-text-dark-primary/10 md:hidden"
                     >
-                        <nav class="flex flex-col items-start p-4 gap-4">
+                        <nav class="flex flex-col items-start p-4 gap-4" >
                             <a href="#about"
                                class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary hover:text-primary">About</a>
                             <a href="#fitnesspi"
@@ -140,22 +140,6 @@
                         </nav>
                     </div>
                 </header>
-
-
-                <script>
-                    const btn = document.getElementById("menuBtn");
-                    const menu = document.getElementById("mobileMenu");
-                    const menuIcon = document.getElementById("menuIcon");
-                    const closeIcon = document.getElementById("closeIcon");
-
-                    btn.addEventListener("click", () => {
-                      const isOpen = menu.classList.contains("max-h-0");
-                      menu.classList.toggle("max-h-0", !isOpen);
-                      menu.classList.toggle("max-h-[500px]", isOpen);
-                      menuIcon.classList.toggle("hidden", isOpen);
-                      closeIcon.classList.toggle("hidden", !isOpen);
-                    });
-                </script>
 
                 <main>
                     <!-- HeroSection -->
